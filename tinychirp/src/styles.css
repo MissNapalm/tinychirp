@@ -8,34 +8,80 @@ html, body {
 }
 
 body {
-  @apply bg-gray-50 text-gray-900 font-sans antialiased flex items-center justify-center;
+  @apply bg-gray-50 dark:bg-neutral-900 text-gray-900 dark:text-neutral-100 font-sans antialiased;
   font-size: clamp(15px, 1vw + 12px, 18px);
+  margin: 0;
+  padding: 0;
 }
 
-/* Centering wrapper */
-.app-wrap {
-  @apply w-full min-h-screen flex items-center justify-center;
+/* Improved spacing for page sections */
+.section {
+  @apply space-y-6;
+  padding-bottom: 2rem; /* Ensure bottom spacing */
 }
 
-.app-container {
-  @apply w-full max-w-[680px] sm:max-w-[820px] p-6;
+/* Better card styling with proper spacing */
+.glass-card {
+  @apply bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-neutral-700/50 p-6 shadow-sm;
+  margin-bottom: 0.5rem; /* Prevent crowding */
 }
 
-/* Card styling */
 .card {
-  @apply bg-white rounded-2xl shadow border border-gray-200 p-6;
+  @apply bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-gray-200 dark:border-neutral-700 p-6;
+  margin-bottom: 0.5rem; /* Prevent crowding */
 }
 
-/* Buttons */
+/* Improved buttons with better spacing */
 .btn {
-  @apply inline-flex items-center justify-center gap-1 px-4 py-2 rounded-lg border border-gray-300 bg-gray-100 hover:bg-gray-200 transition;
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl border border-gray-300 dark:border-neutral-600 bg-gray-100 dark:bg-neutral-700 hover:bg-gray-200 dark:hover:bg-neutral-600 transition-all font-medium;
 }
 
 .btn-primary {
-  @apply bg-blue-600 text-white hover:bg-blue-700;
+  @apply bg-blue-600 dark:bg-blue-500 text-white border-blue-600 dark:border-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600;
 }
 
-/* Muted text */
+.btn-secondary {
+  @apply bg-gray-200 dark:bg-neutral-700 text-gray-700 dark:text-neutral-200 border-gray-300 dark:border-neutral-600 hover:bg-gray-300 dark:hover:bg-neutral-600;
+}
+
+/* Muted text with better contrast */
 .muted {
-  @apply text-gray-500;
+  @apply text-gray-500 dark:text-neutral-400;
+}
+
+/* Proper spacing for post lists and content */
+.post-list {
+  @apply space-y-4;
+}
+
+.post-card {
+  @apply transition-all hover:shadow-md;
+}
+
+/* Ensure proper scrolling behavior */
+.scrollable {
+  @apply overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-neutral-600 scrollbar-track-transparent;
+}
+
+/* Focus styles for better accessibility */
+input:focus, textarea:focus, button:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-neutral-900;
+}
+
+/* Responsive text sizing */
+@screen sm {
+  body {
+    font-size: clamp(15px, 1.2vw + 12px, 18px);
+  }
+}
+
+/* Ensure proper mobile spacing */
+@screen sm {
+  .section {
+    @apply space-y-8;
+  }
+  
+  .glass-card, .card {
+    @apply p-8;
+  }
 }
